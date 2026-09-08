@@ -4,3 +4,28 @@
 // Area = sqrt(s(s-side1)(s-side2)(s-side3))
 // Example: Enter three points for a triangle: 1.5, -3.4, 4.6, 5, 9.5, -3.4 
 // The area of the triangle is 33.6
+
+   #include <iostream>
+   #include <cmath>
+
+   using namespace std;
+
+   int main(){
+    double x1, y1, x2, y2, x3, y3;
+    cout<<"Enter the first coordinate (x1, y1): ";
+    cin>>x1>>y1; 
+    cout<<"Enter the second coordinate (x2, y2): ";
+    cin>>x2>>y2;
+    cout<<"Enter the third coordinate (x3, y3): ";
+    cin>>x3>>y3;
+    cout<<"Your coordinates are: ("<<x1<<", "<<y1<<"), ("<<x2<<", "<<y2<<"), ("<<x3<<", "<<y3<<")"<<endl;
+    double side1 = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
+    double side2 = sqrt(pow(x3-x2, 2) + pow(y3-y2, 2));
+    double side3 = sqrt(pow(x1-x3, 2) + pow(y1-y3, 2));
+    double s = (side1 + side2 + side3) / 2;
+    double area = sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    cout<<"The area of the triangle is: "<<area<<endl;
+
+    return 0;
+   }
+   
