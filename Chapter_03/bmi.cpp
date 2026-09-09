@@ -13,3 +13,34 @@
 // Enter height in inches: 70
 // BMI is 20.95
 // Normal
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+using std::fixed;
+using std::setprecision;
+
+int main(){
+    double weight, height, bmi;
+    cout << "Enter Weight in pounds: ";
+    cin >> weight;
+    cout << "Enter Height in inches: ";
+    cin >> height;
+    weight *= 0.45359237;
+    height *= 0.0254;
+    bmi = weight / pow(height, 2);
+    cout << "BMI is " << fixed <<setprecision(2) << bmi << endl;
+    if (bmi < 18.5){
+        cout << "Underweight" << endl;
+    }
+    else if(bmi >= 18.5 && bmi <= 24.9){
+        cout << "Normal" << endl;
+    }
+    else if(bmi >= 25.0 && bmi <= 29.9){
+        cout << "Overweight" << endl;
+    }
+    else{
+        cout << "Obese" << endl;    
+    }
+}
