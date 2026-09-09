@@ -27,5 +27,6 @@
     cout<<"The area of the triangle is: "<<area<<endl;
 
     return 0;
+    
    }
    
