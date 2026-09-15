@@ -26,3 +26,59 @@
 // Enter the residence status: 0
 // Enter the taxable income: 4,000,000
 // Tax is 118000.
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int residentstatus;
+    double taxableincome, tax;
+
+    cout << "Enter status of residency (0-Resident, 1-Non-resident): ";
+    cin >> residentstatus;
+    cout << "Enter the taxable income: ";
+    cin >> taxableincome;
+    cout << fixed << setprecision(0);
+    cout << "Taxable income: " << taxableincome << endl;
+
+    if (residentstatus == 0) {
+         cout << "You are a Resident." << endl;
+        if (taxableincome <= 2820000) {
+            tax = 0;
+        }
+        else if (taxableincome <= 4020000) {
+            tax = (taxableincome - 2820000) * 0.10;
+        }
+        else if (taxableincome <= 4920000) {
+            tax = (taxableincome - 4020000) * 0.20 + 120000;
+        }
+        else if (taxableincome <= 120000000) {
+            tax = (taxableincome - 4920000) * 0.30 + 300000;
+        }
+        else {
+            tax = ((taxableincome - 4920000) * 0.30 + 300000) + ((taxableincome - 120000000) * 0.10);
+        }
+    }
+    else if (residentstatus == 1) {
+        cout << "You are a Non-Resident." << endl;
+        if (taxableincome <= 2820000) {
+            tax = taxableincome * 0.10;
+        }
+        else if (taxableincome <= 4020000) {
+            tax = taxableincome * 0.10;
+        }
+        else if (taxableincome <= 4920000) {
+            tax = (taxableincome - 4020000) * 0.20 + 402000;
+        }
+        else if (taxableincome <= 120000000) {
+            tax = (taxableincome - 4920000) * 0.30 + 582000;
+        }
+        else {
+            tax = ((taxableincome - 4920000) * 0.30 + 582000) + ((taxableincome - 120000000) * 0.10);
+        }
+    }
+    cout << "Tax is " << tax << "." << endl;
+    return 0;
+}
